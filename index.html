@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Russel Hernandez — Freelance Software Developer</title>
+  <meta name="description" content="Freelance software developer and automation specialist. Custom systems, HRIS, inventory, and workflow automation for local and international clients." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #142033;
+      --navy: #1b365d;
+      --navy-deep: #0e1c33;
+      --paper: #f6f1e8;
+      --card: #fffdf8;
+      --line: #d9d0c3;
+      --muted: #5c6570;
+      --accent: #c9842a;
+      --accent-soft: #f3e2c6;
+      --ok: #2f6f5e;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Instrument Sans", system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.55;
+    }
+    a { color: var(--navy); }
+    img { max-width: 100%; display: block; }
+    .wrap { width: min(1080px, calc(100% - 40px)); margin: 0 auto; }
+    header.nav {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(246,241,232,.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; gap: 16px; }
+    .brand { font-weight: 700; letter-spacing: .02em; color: var(--navy-deep); text-decoration: none; }
+    .nav-links { display: flex; gap: 22px; align-items: center; font-size: 14px; }
+    .nav-links a { text-decoration: none; color: var(--muted); }
+    .nav-links a:hover { color: var(--ink); }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--navy); color: #fff; text-decoration: none;
+      padding: 11px 18px; border-radius: 999px; font-weight: 600; font-size: 14px;
+    }
+    .btn:hover { background: var(--navy-deep); }
+    .btn-gold { background: var(--accent); color: #1a1206; }
+    .btn-gold:hover { background: #b4731f; }
+    .btn-ghost {
+      background: transparent; color: var(--navy);
+      border: 1px solid var(--line); padding: 10px 16px;
+    }
+    .hero { padding: 64px 0 36px; display: grid; grid-template-columns: 160px 1fr; gap: 36px; align-items: center; }
+    .avatar {
+      width: 160px; height: 160px; border-radius: 50%;
+      object-fit: cover; border: 4px solid #fff;
+      box-shadow: 0 12px 30px rgba(20,32,51,.12);
+      background: #ccc;
+    }
+    .kicker { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 10px; }
+    h1 { font-family: "Instrument Serif", Georgia, serif; font-size: clamp(36px, 5vw, 56px); line-height: 1.05; font-weight: 400; }
+    .lede { margin-top: 16px; font-size: 18px; color: var(--muted); max-width: 62ch; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+    .pill { font-size: 12px; padding: 6px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: #fff; }
+    section { padding: 56px 0; }
+    section + section { border-top: 1px solid var(--line); }
+    h2 { font-family: "Instrument Serif", Georgia, serif; font-size: 34px; font-weight: 400; margin-bottom: 8px; }
+    .sub { color: var(--muted); margin-bottom: 28px; max-width: 62ch; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: 16px; padding: 22px;
+    }
+    .card h3 { font-size: 18px; margin-bottom: 8px; }
+    .card p { color: var(--muted); font-size: 15px; }
+    .num { font-family: "Instrument Serif", Georgia, serif; font-size: 34px; color: var(--navy); }
+    .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .project .shot {
+      height: 170px; border-radius: 12px; margin-bottom: 14px;
+      background:
+        linear-gradient(135deg, rgba(27,54,93,.08), rgba(201,132,42,.12)),
+        repeating-linear-gradient(45deg, #efe7d8 0 10px, #f6f1e8 10px 20px);
+      border: 1px dashed #cbbfae;
+      display: flex; align-items: center; justify-content: center;
+      color: #8a7d6a; font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+    }
+    .tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ok); margin-bottom: 6px; }
+    .quotes { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    blockquote { font-family: "Instrument Serif", Georgia, serif; font-size: 22px; line-height: 1.35; }
+    .who { margin-top: 12px; font-size: 13px; color: var(--muted); font-family: "Instrument Sans", sans-serif; }
+    .sample-note {
+      display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; background: var(--accent-soft); color: #7a4e10;
+      padding: 3px 8px; border-radius: 999px; margin-bottom: 10px;
+    }
+    .skills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill { background: #fff; border: 1px solid var(--line); padding: 8px 12px; border-radius: 10px; font-size: 14px; }
+    .cta {
+      background: var(--navy-deep); color: #efe7d8; border-radius: 24px; padding: 48px 40px;
+      display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center;
+    }
+    .cta h2 { color: #fff; }
+    .cta p { color: #c9d4e2; }
+    footer { padding: 28px 0 48px; color: var(--muted); font-size: 13px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    @media (max-width: 800px) {
+      .hero, .grid-3, .projects, .quotes, .cta { grid-template-columns: 1fr; }
+      .hero { text-align: center; }
+      .avatar { margin: 0 auto; }
+      .lede { margin-left: auto; margin-right: auto; }
+      .hero-actions, .pills { justify-content: center; }
+      .nav-links a:not(.btn) { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">Work with Russ</a>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a class="btn" href="https://calendly.com/shanelao/30min" target="_blank" rel="noopener">Book a discovery call</a>
+      </nav>
+    </div>
+  </header>
+  <main id="top">
+    <div class="wrap">
+      <section class="hero" style="border:0; padding-bottom: 24px;">
+        <img class="avatar" src="russel.jpg" width="160" height="143" alt="Russel Hernandez" />
+        <div>
+          <p class="kicker">Metro Manila · GMT+8 · Local & international</p>
+          <h1>Software that runs the business.<br />Automations that keep it moving.</h1>
+          <p class="lede">I’m Russel Hernandez, a freelance software developer who also builds automations. Eight years shipping HRIS, payroll, inventory, and maintenance systems — plus the n8n, Zapier, and Power Automate workflows around them. Available part-time now, ready to grow into a full-time engagement.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="https://calendly.com/shanelao/30min" target="_blank" rel="noopener">Book a 30-min discovery call</a>
+            <a class="btn btn-ghost" href="mailto:russel.uhernandez@gmail.com">russel.uhernandez@gmail.com</a>
+          </div>
+          <div class="pills">
+            <span class="pill">C# / ASP.NET</span>
+            <span class="pill">SQL Server · MySQL</span>
+            <span class="pill">n8n · Zapier · Power Automate</span>
+            <span class="pill">Google Apps Script</span>
+            <span class="pill">HRIS & operations systems</span>
+          </div>
+        </div>
+      </section>
+      <section id="proof" style="padding-top: 12px;">
+        <div class="grid-3">
+          <article class="card">
+            <div class="num">2018 → now</div>
+            <h3>HRIS still selling</h3>
+            <p>The HRIS I built is a commercial product sold to private companies and government agencies — and it is still being sold today.</p>
+          </article>
+          <article class="card">
+            <div class="num">5 systems</div>
+            <h3>Operations software shipped</h3>
+            <p>Inventory with QR scanning, equipment maintenance, vehicle tracking, construction bidding, and bank salary transmittal.</p>
+          </article>
+          <article class="card">
+            <div class="num">Part-time → full-time</div>
+            <h3>How we’ll start</h3>
+            <p>Currently delivering inside a full-time role. Taking freelance and part-time client work that can grow into a dedicated partnership.</p>
+          </article>
+        </div>
+      </section>
+      <section id="services">
+        <h2>What I take on</h2>
+        <p class="sub">Three offers. Most clients start with one system or one workflow, then keep going.</p>
+        <div class="grid-3">
+          <article class="card">
+            <h3>1. Custom software</h3>
+            <p>Internal web and desktop apps in C#, ASP.NET / .NET Core, SQL Server, and MySQL. Requirements, build, test, document, train.</p>
+          </article>
+          <article class="card">
+            <h3>2. Automation</h3>
+            <p>n8n, Zapier, Microsoft Power Automate, Google Apps Script, and Office Scripts — connect the tools you already pay for so people stop copy-pasting.</p>
+          </article>
+          <article class="card">
+            <h3>3. HRIS & operations</h3>
+            <p>Employee records, attendance, leave, payroll, inventory, maintenance, bidding, and salary-to-bank files. I have shipped all of these.</p>
+          </article>
+        </div>
+      </section>
+      <section id="work">
+        <h2>Selected work</h2>
+        <p class="sub">Screenshots are placeholders until we collect live captures. The systems themselves are real client deliveries.</p>
+        <div class="projects">
+          <article class="card project">
+            <div class="shot">Screenshot coming soon</div>
+            <span class="tag">Product still in market</span>
+            <h3>Commercial HRIS</h3>
+            <p>End-to-end human resources system covering recruitment through retirement: records, attendance, leave, payroll, performance, benefits. Sold to private companies and government agencies. Later rebuilt as a web HRIS with biometric attendance. Still selling.</p>
+          </article>
+          <article class="card project">
+            <div class="shot">Screenshot coming soon</div>
+            <span class="tag">Operations</span>
+            <h3>QR inventory system</h3>
+            <p>Floor-ready inventory application paired with QR scanners so teams can count parts and materials without clipboard stocktakes. Built, maintained, tested, and documented for production use.</p>
+          </article>
+          <article class="card project">
+            <div class="shot">Screenshot coming soon</div>
+            <span class="tag">Operations</span>
+            <h3>XFactor maintenance platform</h3>
+            <p>Preventive maintenance, repairs, spare parts inventory, cause analysis, and mid- to long-term equipment planning — software in place of paper-heavy shop processes.</p>
+          </article>
+          <article class="card project">
+            <div class="shot">Screenshot coming soon</div>
+            <span class="tag">Finance + fleet</span>
+            <h3>Bank transmittal, vehicles, bidding</h3>
+            <p>Salary data moved from the system to the bank without re-keying. Vehicle inventory and a construction bidding system built alongside an internal HRIS.</p>
+          </article>
+        </div>
+      </section>
+      <section id="words">
+        <h2>What clients will say</h2>
+        <p class="sub">These quotes are samples for layout only. They will be replaced with real names and permissioned lines as soon as we have them.</p>
+        <div class="quotes">
+          <article class="card">
+            <div class="sample-note">Sample testimonial</div>
+            <blockquote>“He didn’t just write code. He sat with how payroll and attendance actually worked, then shipped a system the team could run without him in the room.”</blockquote>
+            <p class="who">Operations lead · placeholder</p>
+          </article>
+          <article class="card">
+            <div class="sample-note">Sample testimonial</div>
+            <blockquote>“The HRIS is still the product we sell. That only happens if the first build was solid and the handoff docs were clear.”</blockquote>
+            <p class="who">Product owner · placeholder</p>
+          </article>
+        </div>
+      </section>
+      <section id="about">
+        <h2>About Russel</h2>
+        <p class="sub">BS Information Technology, STI Ortigas–Cainta (2018). Based in Metro Manila. Filipino (native), English (conversational). Comfortable working with local teams and international clients who can meet in writing and on calls. Stack spans C#, ASP.NET, .NET Core, Entity Framework, REST/SOAP, SQL Server, MySQL, Azure, HTML/CSS/Bootstrap/JavaScript, plus n8n, Zapier, Power Automate, Google Apps Script, and Office Scripts.</p>
+        <div class="skills">
+          <span class="skill">C#</span><span class="skill">ASP.NET / .NET Core</span><span class="skill">Entity Framework</span>
+          <span class="skill">SQL Server</span><span class="skill">MySQL</span><span class="skill">Azure</span>
+          <span class="skill">REST / SOAP</span><span class="skill">JavaScript</span><span class="skill">Bootstrap</span>
+          <span class="skill">n8n</span><span class="skill">Zapier</span><span class="skill">Power Automate</span>
+          <span class="skill">Google Apps Script</span><span class="skill">Office Scripts</span><span class="skill">Git</span>
+          <span class="skill">Scrum / project owner</span>
+        </div>
+      </section>
+      <section>
+        <div class="cta">
+          <div>
+            <h2>Need a system built — or a workflow taken off someone’s plate?</h2>
+            <p style="margin-top:10px;">Book a 30-minute discovery call. Shane hosts the first conversation so we can see if Russel is the right builder for the work.</p>
+          </div>
+          <a class="btn btn-gold" href="https://calendly.com/shanelao/30min" target="_blank" rel="noopener">Book on Calendly</a>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="wrap">
+    <span>© 2026 Russel Hernandez · workwithruss</span>
+    <span>
+      <a href="mailto:russel.uhernandez@gmail.com">Email</a>
+      ·
+      <a href="https://www.linkedin.com/in/" title="Add Russel LinkedIn URL">LinkedIn</a>
+      ·
+      0936 737 4229
+    </span>
+  </footer>
+</body>
+</html>
